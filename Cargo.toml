@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "pwsh-prompt-path",
+    "pwsh-prompt-git-plugin",
+    "pwsh-prompt-date",
+    "pwsh-prompt-full"
+]
