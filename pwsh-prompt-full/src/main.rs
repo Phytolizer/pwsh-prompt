@@ -2,13 +2,22 @@ use colored::*;
 
 use rand::Rng;
 
+#[cfg(target_os = "windows")]
+// Windows logo on nerd fonts
+const LOGO: &str = "\u{E62A}";
+
+#[cfg(target_os = "linux")]
+const LOGO: &str = "\u{F31A}";
+
+#[cfg(target_os = "macos")]
+const LOGO: &str = "\u{e711}";
+
 fn logo_plugin() {
-    let windows = "\u{E62A}";
     let colored_logo = match rand::thread_rng().gen_range(0..4) {
-        0 => windows.blue(),
-        1 => windows.red(),
-        2 => windows.yellow(),
-        3 => windows.green(),
+        0 => LOGO.blue(),
+        1 => LOGO.red(),
+        2 => LOGO.yellow(),
+        3 => LOGO.green(),
         _ => unreachable!(),
     };
     print!("{}", colored_logo);
